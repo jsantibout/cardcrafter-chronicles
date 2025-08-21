@@ -26,7 +26,8 @@ export default {
 				foreground: 'hsl(var(--foreground))',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
-					foreground: 'hsl(var(--primary-foreground))'
+					foreground: 'hsl(var(--primary-foreground))',
+					glow: 'hsl(var(--primary-glow))'
 				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
@@ -63,12 +64,32 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				}
 			},
+			backgroundImage: {
+				'holographic': 'var(--holographic)',
+				'metallic': 'var(--metallic)'
+			},
+			boxShadow: {
+				'card': 'var(--card-shadow)',
+				'glow': 'var(--card-glow)'
+			},
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
 			},
 			keyframes: {
+				'card-hover': {
+					'0%': { transform: 'scale(1) rotateY(0deg)', boxShadow: 'var(--card-shadow)' },
+					'100%': { transform: 'scale(1.05) rotateY(5deg)', boxShadow: 'var(--card-glow)' }
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0px)' },
+					'50%': { transform: 'translateY(-10px)' }
+				},
+				'glow-pulse': {
+					'0%, 100%': { opacity: '0.5' },
+					'50%': { opacity: '1' }
+				},
 				'accordion-down': {
 					from: {
 						height: '0'
@@ -87,6 +108,9 @@ export default {
 				}
 			},
 			animation: {
+				'card-hover': 'card-hover 0.3s ease-out',
+				'float': 'float 3s ease-in-out infinite',
+				'glow-pulse': 'glow-pulse 2s ease-in-out infinite',
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out'
 			}
