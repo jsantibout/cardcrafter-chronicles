@@ -87,7 +87,7 @@ export default function BlogPost() {
         <div className="bg-card/90 backdrop-blur-sm rounded-xl border border-border p-8 shadow-card">
           {/* Article Header */}
           <header className="mb-8">
-            <h1 className="text-4xl md:text-5xl font-bold bg-holographic bg-clip-text text-transparent mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold text-primary mb-4">
               {post.title}
             </h1>
             
@@ -106,7 +106,7 @@ export default function BlogPost() {
 
           {/* Article Content */}
           <div 
-            className="prose prose-lg max-w-none prose-headings:text-foreground prose-p:text-foreground/90 prose-strong:text-foreground prose-h2:bg-holographic prose-h2:bg-clip-text prose-h2:text-transparent"
+            className="prose prose-lg max-w-none prose-headings:text-foreground prose-p:text-foreground/90 prose-strong:text-foreground prose-h2:text-primary"
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
 

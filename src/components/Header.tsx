@@ -8,7 +8,7 @@ export function Header() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center">
-            <h1 className="text-2xl font-bold bg-holographic bg-clip-text text-transparent">
+            <h1 className="text-2xl font-bold text-primary">
               TCG Chronicles
             </h1>
           </div>

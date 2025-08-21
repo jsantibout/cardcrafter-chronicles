@@ -5,7 +5,7 @@ export function Footer() {
         <div className="text-center space-y-4">
           {/* Logo */}
           <div className="mb-6">
-            <h3 className="text-xl font-bold bg-holographic bg-clip-text text-transparent">
+            <h3 className="text-xl font-bold text-primary">
               TCG Chronicles
             </h3>
           </div>
