@@ -89,7 +89,7 @@ export function CardGrid() {
     <section className="py-16 px-4 bg-gradient-to-br from-background via-fire/5 to-lightning/5">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold bg-rainbow-gradient bg-clip-text text-transparent mb-4">
+          <h2 className="text-4xl font-bold text-primary mb-4">
             Teeziro's Connected Art Pokemon Cards
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-6">
