@@ -18,6 +18,15 @@ export default {
 			}
 		},
 		extend: {
+			backgroundImage: {
+				'holographic': 'var(--holographic)',
+				'rainbow-gradient': 'var(--rainbow-gradient)',
+				'metallic': 'var(--metallic)'
+			},
+			boxShadow: {
+				'card': 'var(--card-shadow)',
+				'glow': 'var(--card-glow)'
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -62,15 +71,17 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
-			},
-			backgroundImage: {
-				'holographic': 'var(--holographic)',
-				'metallic': 'var(--metallic)'
-			},
-			boxShadow: {
-				'card': 'var(--card-shadow)',
-				'glow': 'var(--card-glow)'
+				},
+				// Pokemon energy colors
+				water: 'hsl(var(--water-energy))',
+				grass: 'hsl(var(--grass-energy))',
+				fire: 'hsl(var(--fire-energy))',
+				lightning: 'hsl(var(--lightning-energy))',
+				psychic: 'hsl(var(--psychic-energy))',
+				fighting: 'hsl(var(--fighting-energy))',
+				darkness: 'hsl(var(--darkness-energy))',
+				metal: 'hsl(var(--metal-energy))',
+				fairy: 'hsl(var(--fairy-energy))'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

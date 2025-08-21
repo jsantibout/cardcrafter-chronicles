@@ -1,109 +1,108 @@
 import { TradingCard } from "./TradingCard";
-import tezziro1 from "@/assets/tezziro-1.jpg";
-import tezziro2 from "@/assets/tezziro-2.jpg";
-import tezziro3 from "@/assets/tezziro-3.jpg";
-import tezziro4 from "@/assets/tezziro-4.jpg";
-import tezziro5 from "@/assets/tezziro-5.jpg";
-import tezziro6 from "@/assets/tezziro-6.jpg";
-import tezziro7 from "@/assets/tezziro-7.jpg";
-import tezziro8 from "@/assets/tezziro-8.jpg";
-import tezziro9 from "@/assets/tezziro-9.jpg";
+import dudunsparce from "@/assets/dudunsparce.png";
+import torkoal from "@/assets/torkoal.png";
+import wattrel from "@/assets/wattrel.png";
+import golbat from "@/assets/golbat.png";
+import slowpoke from "@/assets/slowpoke.png";
+import passimian from "@/assets/passimian.png";
+import vibrava from "@/assets/vibrava.png";
+import togetic from "@/assets/togetic.png";
+import spheal from "@/assets/spheal.png";
 
 const cardData = [
   {
     id: 1,
-    image: tezziro1,
-    title: "Tezziro, Artifact Wielder",
-    type: "Planeswalker",
-    rarity: "Legendary",
-    tcgPlayerUrl: "https://www.tcgplayer.com/"
+    image: dudunsparce,
+    title: "Dudunsparce",
+    type: "Normal Type",
+    rarity: "Illustration Rare",
+    tcgPlayerUrl: "https://www.tcgplayer.com/search/pokemon/temporal-forces?q=Dudunsparce"
   },
   {
     id: 2,
-    image: tezziro2,
-    title: "Tezziro's Mechanical Construct",
-    type: "Artifact Creature",
-    rarity: "Rare",
-    tcgPlayerUrl: "https://www.tcgplayer.com/"
+    image: torkoal,
+    title: "Torkoal",
+    type: "Fire Type",
+    rarity: "Illustration Rare",
+    tcgPlayerUrl: "https://www.tcgplayer.com/search/pokemon/twilight-masquerade?q=Torkoal"
   },
   {
     id: 3,
-    image: tezziro3,
-    title: "Tezziro's Arcane Laboratory",
-    type: "Legendary Land",
-    rarity: "Rare",
-    tcgPlayerUrl: "https://www.tcgplayer.com/"
+    image: wattrel,
+    title: "Wattrel",
+    type: "Electric Type",
+    rarity: "Illustration Rare",
+    tcgPlayerUrl: "https://www.tcgplayer.com/search/pokemon/twilight-masquerade?q=Wattrel"
   },
   {
     id: 4,
-    image: tezziro4,
-    title: "Tezziro's Mind Control",
-    type: "Instant",
-    rarity: "Uncommon",
-    tcgPlayerUrl: "https://www.tcgplayer.com/"
+    image: golbat,
+    title: "Golbat",
+    type: "Darkness Type",
+    rarity: "Illustration Rare",
+    tcgPlayerUrl: "https://www.tcgplayer.com/search/pokemon/shrouded-fable?q=Golbat"
   },
   {
     id: 5,
-    image: tezziro5,
-    title: "Tezziro's Transformation",
-    type: "Artifact Equipment",
-    rarity: "Rare",
-    tcgPlayerUrl: "https://www.tcgplayer.com/"
+    image: slowpoke,
+    title: "Slowpoke",
+    type: "Psychic Type",
+    rarity: "Illustration Rare",
+    tcgPlayerUrl: "https://www.tcgplayer.com/search/pokemon/stellar-crown?q=Slowpoke"
   },
   {
     id: 6,
-    image: tezziro6,
-    title: "Tezziro's Battle Stance",
-    type: "Planeswalker",
-    rarity: "Legendary",
-    tcgPlayerUrl: "https://www.tcgplayer.com/"
+    image: passimian,
+    title: "Passimian",
+    type: "Fighting Type",
+    rarity: "Illustration Rare",
+    tcgPlayerUrl: "https://www.tcgplayer.com/search/pokemon/surging-sparks?q=Passimian"
   },
   {
     id: 7,
-    image: tezziro7,
-    title: "Tezziro's Ancient Relic",
-    type: "Legendary Artifact",
-    rarity: "Legendary",
-    tcgPlayerUrl: "https://www.tcgplayer.com/"
+    image: vibrava,
+    title: "Vibrava",
+    type: "Fighting Type",
+    rarity: "Illustration Rare",
+    tcgPlayerUrl: "https://www.tcgplayer.com/search/pokemon/surging-sparks?q=Vibrava"
   },
   {
     id: 8,
-    image: tezziro8,
-    title: "Tezziro's Artifact Storm",
-    type: "Sorcery",
-    rarity: "Rare",
-    tcgPlayerUrl: "https://www.tcgplayer.com/"
+    image: togetic,
+    title: "Togetic",
+    type: "Colorless Type",
+    rarity: "Illustration Rare",
+    tcgPlayerUrl: "https://www.tcgplayer.com/search/pokemon/surging-sparks?q=Togetic"
   },
   {
     id: 9,
-    image: tezziro9,
-    title: "Tezziro's Mechanical Dragon",
-    type: "Legendary Creature",
-    rarity: "Legendary",
-    tcgPlayerUrl: "https://www.tcgplayer.com/"
+    image: spheal,
+    title: "Spheal",
+    type: "Water Type",
+    rarity: "Illustration Rare",
+    tcgPlayerUrl: "https://www.tcgplayer.com/search/pokemon/surging-sparks?q=Spheal"
   }
 ];
 
 export function CardGrid() {
   return (
-    <section className="py-16 px-4 bg-gradient-to-br from-background via-primary/5 to-secondary/5">
+    <section className="py-16 px-4 bg-gradient-to-br from-background via-fire/5 to-lightning/5">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold bg-holographic bg-clip-text text-transparent mb-4">
-            Featured Tezziro Cards
+          <h2 className="text-4xl font-bold bg-rainbow-gradient bg-clip-text text-transparent mb-4">
+            Teeziro's Connected Art Pokemon Cards
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-6">
-            Discover the legendary collection of Tezziro artifacts and spells.
+            Discover the amazing 9-card connected artwork by Teeziro from 2024's Pokemon TCG sets.
           </p>
         </div>
 
         {/* 3x3 Grid Layout */}
         <div className="grid grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto">
-          {cardData.map((card, index) => (
+          {cardData.map((card) => (
             <TradingCard
               key={card.id}
               {...card}
-              className={`animate-float ${index % 3 === 1 ? 'animation-delay-1000' : index % 3 === 2 ? 'animation-delay-2000' : ''}`}
             />
           ))}
         </div>
@@ -111,7 +110,7 @@ export function CardGrid() {
         {/* Caption */}
         <div className="text-center mt-8">
           <p className="text-lg font-semibold text-accent animate-glow-pulse">
-            ✨ Click a card to purchase! ✨
+            ✨ Click a card to purchase on TCGPlayer! ✨
           </p>
         </div>
       </div>
