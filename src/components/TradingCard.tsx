@@ -25,23 +25,23 @@ export function TradingCard({
 
   const getRarityGlow = (rarity: string) => {
     switch (rarity.toLowerCase()) {
-      case 'illustration rare': return 'shadow-glow border-rainbow-gradient';
-      default: return 'shadow-card border-primary/50';
+      case 'illustration rare': return 'shadow-card border-primary/20';
+      default: return 'shadow-card border-border';
     }
   };
 
   const getTypeColor = (type: string) => {
     switch (type.toLowerCase()) {
-      case 'fire type': return 'bg-fire/20 text-fire border-fire/30';
-      case 'water type': return 'bg-water/20 text-water border-water/30';
-      case 'grass type': return 'bg-grass/20 text-grass border-grass/30';
-      case 'electric type': return 'bg-lightning/20 text-lightning border-lightning/30';
-      case 'psychic type': return 'bg-psychic/20 text-psychic border-psychic/30';
-      case 'fighting type': return 'bg-fighting/20 text-fighting border-fighting/30';
-      case 'darkness type': return 'bg-darkness/20 text-darkness border-darkness/30';
-      case 'normal type': return 'bg-muted/20 text-muted-foreground border-muted/30';
-      case 'colorless type': return 'bg-card/20 text-foreground border-border/30';
-      default: return 'bg-muted/20 text-muted-foreground border-muted/30';
+      case 'fire type': return 'bg-fire/30 text-fire border-fire/40';
+      case 'water type': return 'bg-water/30 text-water border-water/40';
+      case 'grass type': return 'bg-grass/30 text-grass border-grass/40';
+      case 'electric type': return 'bg-lightning/30 text-lightning border-lightning/40';
+      case 'psychic type': return 'bg-psychic/30 text-psychic border-psychic/40';
+      case 'fighting type': return 'bg-fighting/30 text-fighting border-fighting/40';
+      case 'darkness type': return 'bg-darkness/30 text-darkness border-darkness/40';
+      case 'normal type': return 'bg-muted/40 text-muted-foreground border-muted/50';
+      case 'colorless type': return 'bg-accent/40 text-foreground border-accent/50';
+      default: return 'bg-muted/40 text-muted-foreground border-muted/50';
     }
   };
 
@@ -55,8 +55,8 @@ export function TradingCard({
       onClick={handleCardClick}
     >
       <div className={cn(
-        "relative overflow-hidden rounded-xl border-2 bg-card",
-        "backdrop-blur-sm bg-gradient-to-br from-card/80 to-card/60",
+        "relative overflow-hidden rounded-xl border bg-card",
+        "transition-all duration-300",
         getRarityGlow(rarity)
       )}>
         {/* Card Image */}
@@ -64,34 +64,33 @@ export function TradingCard({
           <img 
             src={image} 
             alt={title}
-            className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
+            className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
           />
         </div>
         
         {/* Card Info Overlay */}
-        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background/95 via-background/80 to-transparent p-3">
+        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-card/95 via-card/80 to-transparent p-3">
           <h3 className="text-sm font-bold text-foreground truncate">{title}</h3>
           <div className="flex justify-between items-center mt-1">
             <span className={cn(
               "text-xs font-medium px-2 py-1 rounded-full border",
               getTypeColor(type)
             )}>{type}</span>
-            <span className="text-xs font-semibold px-2 py-1 rounded-full bg-accent/20 text-accent border border-accent/30">
+            <span className="text-xs font-medium px-2 py-1 rounded-full bg-accent/40 text-accent-foreground border border-accent/50">
               {rarity}
             </span>
           </div>
         </div>
 
-        {/* Holographic Effect Overlay */}
-        <div className="absolute inset-0 bg-rainbow-gradient opacity-0 group-hover:opacity-30 transition-opacity duration-300 pointer-events-none" />
+        {/* Subtle Hover Effect */}
+        <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
         
-        {/* Glow Effect */}
-        <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-fire/10 via-transparent to-water/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-      </div>
-      
-      {/* Floating Purchase Indicator */}
-      <div className="absolute -top-2 -right-2 bg-lightning text-background text-xs font-bold px-2 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-glow-pulse">
-        Buy Now
+        {/* Buy Button on Hover */}
+        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-background/80 backdrop-blur-sm">
+          <button className="bg-primary text-primary-foreground px-6 py-2 rounded-lg font-medium hover:bg-primary/90 transition-colors">
+            Buy Now
+          </button>
+        </div>
       </div>
     </div>
   );
