@@ -86,18 +86,19 @@ const cardData = [
 
 export function CardGrid() {
   return (
-    <section className="py-16 px-4">
-      <div className="max-w-7xl mx-auto">
+    <section className="py-16 px-4 bg-gradient-to-br from-background via-primary/5 to-secondary/5">
+      <div className="max-w-5xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold bg-holographic bg-clip-text text-transparent mb-4">
             Featured Tezziro Cards
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Discover the legendary collection of Tezziro artifacts and spells. Click any card to purchase on TCGPlayer.
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-6">
+            Discover the legendary collection of Tezziro artifacts and spells.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        {/* 3x3 Grid Layout */}
+        <div className="grid grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto">
           {cardData.map((card, index) => (
             <TradingCard
               key={card.id}
@@ -105,6 +106,13 @@ export function CardGrid() {
               className={`animate-float ${index % 3 === 1 ? 'animation-delay-1000' : index % 3 === 2 ? 'animation-delay-2000' : ''}`}
             />
           ))}
+        </div>
+
+        {/* Caption */}
+        <div className="text-center mt-8">
+          <p className="text-lg font-semibold text-accent animate-glow-pulse">
+            ✨ Click a card to purchase! ✨
+          </p>
         </div>
       </div>
     </section>

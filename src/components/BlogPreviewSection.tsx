@@ -95,31 +95,20 @@ const samplePosts = [
 export function BlogPreviewSection({ className }: BlogPreviewSectionProps) {
   return (
     <section className={cn("py-16 px-4", className)}>
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold bg-holographic bg-clip-text text-transparent mb-4">
-            Latest Chronicles
+          <h2 className="text-3xl md:text-4xl font-bold bg-holographic bg-clip-text text-transparent mb-4">
+            Recent Blog Previews
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Explore the rich lore and strategies behind your favorite trading cards.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {samplePosts.map((post) => (
             <BlogPreview key={post.id} {...post} />
           ))}
-        </div>
-
-        <div className="text-center mt-12">
-          <Button 
-            variant="outline" 
-            size="lg"
-            className="bg-card/50 border-2 border-primary/30 hover:border-primary hover:bg-primary/10"
-            onClick={() => window.location.href = '/blog'}
-          >
-            View All Chronicles
-          </Button>
         </div>
       </div>
     </section>
