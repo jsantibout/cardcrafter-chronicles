@@ -109,7 +109,7 @@ export function CardGrid() {
 
         {/* Caption */}
         <div className="text-center mt-8">
-          <p className="text-lg font-semibold text-accent animate-glow-pulse">
+          <p className="text-lg font-semibold text-foreground animate-glow-pulse">
             ✨ Click a card to purchase on TCGPlayer! ✨
           </p>
         </div>
