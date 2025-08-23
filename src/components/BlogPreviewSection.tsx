@@ -19,45 +19,73 @@ export function BlogPreview({
   image, 
   publishDate, 
   readTime, 
-  slug 
-}: BlogPreviewProps) {
-  return (
-    <Card className="group overflow-hidden border-2 border-border hover:border-primary/50 transition-all duration-300 hover:shadow-card bg-card/50 backdrop-blur-sm">
-      <div className="flex gap-4 p-6">
+  slug,
+  variant = "grid"
+}: BlogPreviewProps & { variant?: "grid" | "list" }) {
+  if (variant === "list") {
+    return (
+      <div className="flex gap-4 py-6 border-b border-border/50 last:border-b-0">
         {/* Thumbnail on the left */}
-        <div className="w-32 h-24 flex-shrink-0 overflow-hidden rounded-lg">
+        <div className="w-24 h-16 flex-shrink-0 overflow-hidden rounded-lg">
           <img 
             src={image} 
             alt={title}
-            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+            className="w-full h-full object-cover"
           />
         </div>
         
         {/* Content on the right, stacked vertically */}
-        <div className="flex-1 flex flex-col">
-          <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
-            <span>{publishDate}</span>
-            <span>•</span>
-            <span>{readTime} read</span>
-          </div>
-          
-          <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+        <div className="flex-1">
+          <h3 className="text-lg font-bold text-foreground mb-1 hover:text-primary transition-colors cursor-pointer"
+              onClick={() => window.location.href = `/blog/${slug}`}>
             {title}
           </h3>
           
-          <p className="text-muted-foreground mb-4 line-clamp-2 flex-1">
+          <div className="text-sm text-muted-foreground mb-2">
+            {publishDate}
+          </div>
+          
+          <p className="text-muted-foreground text-sm line-clamp-2">
             {excerpt}
           </p>
-          
-          <Button 
-            variant="secondary" 
-            className="w-fit bg-secondary/80 hover:bg-secondary transition-colors"
-            onClick={() => window.location.href = `/blog/${slug}`}
-          >
-            Read More
-          </Button>
         </div>
       </div>
+    );
+  }
+
+  return (
+    <Card className="group overflow-hidden border-2 border-border hover:border-primary/50 transition-all duration-300 hover:shadow-card bg-card/50 backdrop-blur-sm">
+      <div className="aspect-video overflow-hidden">
+        <img 
+          src={image} 
+          alt={title}
+          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+        />
+      </div>
+      
+      <CardContent className="p-6">
+        <div className="flex items-center gap-2 text-sm text-muted-foreground mb-3">
+          <span>{publishDate}</span>
+          <span>•</span>
+          <span>{readTime} read</span>
+        </div>
+        
+        <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
+          {title}
+        </h3>
+        
+        <p className="text-muted-foreground mb-4 line-clamp-3">
+          {excerpt}
+        </p>
+        
+        <Button 
+          variant="secondary" 
+          className="w-full bg-secondary/80 hover:bg-secondary transition-colors"
+          onClick={() => window.location.href = `/blog/${slug}`}
+        >
+          Read Story
+        </Button>
+      </CardContent>
     </Card>
   );
 }
