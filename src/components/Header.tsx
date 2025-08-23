@@ -1,7 +1,17 @@
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 export function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
     <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
       <div className="max-w-7xl mx-auto px-4 py-4">
@@ -38,14 +48,35 @@ export function Header() {
             </a>
           </nav>
 
-          {/* Mobile Menu Button */}
-          <Button 
-            variant="ghost" 
-            size="sm"
-            className="md:hidden"
-          >
-            Menu
-          </Button>
+          {/* Mobile Menu */}
+          <DropdownMenu open={isMenuOpen} onOpenChange={setIsMenuOpen}>
+            <DropdownMenuTrigger asChild>
+              <Button 
+                variant="ghost" 
+                size="sm"
+                className="md:hidden"
+              >
+                {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="w-48">
+              <DropdownMenuItem asChild>
+                <a href="/" className="w-full cursor-pointer">
+                  Home
+                </a>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <a href="/blog" className="w-full cursor-pointer">
+                  Blog
+                </a>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <a href="/about" className="w-full cursor-pointer">
+                  About
+                </a>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
       </div>
     </header>

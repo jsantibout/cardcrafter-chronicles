@@ -57,20 +57,20 @@ export default function Blog() {
     <div className="min-h-screen bg-background">
       <Header />
       
-      <main className="max-w-7xl mx-auto px-4 py-8">
-        <div className="flex gap-8">
+      <main className="max-w-7xl mx-auto px-4 py-4 md:py-8">
+        <div className="flex flex-col lg:flex-row gap-4 md:gap-8">
           {/* Main Content Area */}
           <div className="flex-1">
-            <div className="mb-8">
-              <h1 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+            <div className="mb-4 md:mb-8">
+              <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-primary mb-2 md:mb-4">
                 Blog Feed
               </h1>
-              <p className="text-lg text-muted-foreground">
+              <p className="text-base md:text-lg text-muted-foreground">
                 Discover the latest stories, strategies, and lore from the world of trading cards.
               </p>
             </div>
             
-            <div className="bg-card/30 border border-border rounded-lg p-6">
+            <div className="bg-card/30 border border-border rounded-lg p-3 md:p-6">
               {samplePosts.map((post) => (
                 <BlogPreview key={post.id} {...post} variant="list" />
               ))}
@@ -80,7 +80,10 @@ export default function Blog() {
           </div>
           
           {/* Sidebar */}
-          <aside className="w-80 hidden lg:block">
+          <aside className="w-full lg:w-80 mt-6 lg:mt-0">
+            <div className="lg:hidden mb-4">
+              <h2 className="text-xl font-semibold text-primary mb-3">More Content</h2>
+            </div>
             <BlogSidebar />
           </aside>
         </div>
