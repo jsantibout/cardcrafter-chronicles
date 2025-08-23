@@ -68,19 +68,6 @@ export function TradingCard({
           />
         </div>
         
-        {/* Card Info Overlay */}
-        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-card/95 via-card/80 to-transparent p-3">
-          <h3 className="text-sm font-bold text-foreground truncate">{title}</h3>
-          <div className="flex justify-between items-center mt-1">
-            <span className={cn(
-              "text-xs font-medium px-2 py-1 rounded-full border",
-              getTypeColor(type)
-            )}>{type}</span>
-            <span className="text-xs font-medium px-2 py-1 rounded-full bg-accent/40 text-accent-foreground border border-accent/50">
-              {rarity}
-            </span>
-          </div>
-        </div>
 
         {/* Subtle Hover Effect */}
         <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
