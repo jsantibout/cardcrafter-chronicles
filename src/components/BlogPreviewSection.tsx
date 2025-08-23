@@ -1,5 +1,5 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Clock, User } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface BlogPreviewProps {
@@ -10,18 +10,24 @@ interface BlogPreviewProps {
   publishDate: string;
   readTime: string;
   slug: string;
+  variant?: "grid" | "list";
+  category?: string;
+  author?: string;
+  isNew?: boolean;
 }
 
 export function BlogPreview({ 
-  id, 
   title, 
   excerpt, 
   image, 
   publishDate, 
   readTime, 
   slug,
-  variant = "grid"
-}: BlogPreviewProps & { variant?: "grid" | "list" }) {
+  variant = "grid",
+  category = "ARTICLES",
+  author = "TCG Chronicles",
+  isNew = false
+}: BlogPreviewProps) {
   if (variant === "list") {
     return (
       <div className="flex gap-4 py-6 border-b border-border/50 last:border-b-0">
@@ -54,39 +60,63 @@ export function BlogPreview({
   }
 
   return (
-    <Card className="group overflow-hidden border-2 border-border hover:border-primary/50 transition-all duration-300 hover:shadow-card bg-card/50 backdrop-blur-sm">
-      <div className="aspect-video overflow-hidden">
-        <img 
-          src={image} 
-          alt={title}
-          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-        />
-      </div>
-      
-      <CardContent className="p-6">
-        <div className="flex items-center gap-2 text-sm text-muted-foreground mb-3">
-          <span>{publishDate}</span>
-          <span>•</span>
-          <span>{readTime} read</span>
+    <article className="group cursor-pointer">
+      <a href={`/blog/${slug}`} className="block">
+        <div className="relative overflow-hidden rounded-lg aspect-[4/3] bg-muted">
+          <img 
+            src={image} 
+            alt={title}
+            className="w-full h-full object-cover transition-transform group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+          
+          {/* Category Badge */}
+          <div className="absolute top-3 left-3">
+            <Badge variant="secondary" className="bg-primary text-primary-foreground text-xs font-bold uppercase tracking-wide">
+              {category}
+            </Badge>
+          </div>
+          
+          {/* New Badge */}
+          {isNew && (
+            <div className="absolute top-3 right-3">
+              <Badge variant="destructive" className="bg-red-500 text-white text-xs font-bold">
+                NEW
+              </Badge>
+            </div>
+          )}
+          
+          {/* Read Time */}
+          <div className={cn(
+            "absolute top-3 right-3 flex items-center gap-1 text-white/90 text-sm bg-black/20 rounded px-2 py-1",
+            isNew && "mr-16"
+          )}>
+            <Clock size={12} />
+            <span>{readTime}</span>
+          </div>
+          
+          {/* Content Overlay */}
+          <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
+            <div className="space-y-2">
+              <h3 className="text-lg md:text-xl font-bold leading-tight line-clamp-2 group-hover:text-primary-foreground transition-colors">
+                {title}
+              </h3>
+              <p className="text-sm text-white/80 line-clamp-2 hidden md:block">
+                {excerpt}
+              </p>
+              <div className="flex items-center gap-3 text-xs text-white/70 pt-2">
+                <div className="flex items-center gap-1">
+                  <User size={12} />
+                  <span>{author}</span>
+                </div>
+                <span>•</span>
+                <span>{publishDate}</span>
+              </div>
+            </div>
+          </div>
         </div>
-        
-        <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
-          {title}
-        </h3>
-        
-        <p className="text-muted-foreground mb-4 line-clamp-3">
-          {excerpt}
-        </p>
-        
-        <Button 
-          variant="secondary" 
-          className="w-full bg-secondary/80 hover:bg-secondary transition-colors"
-          onClick={() => window.location.href = `/blog/${slug}`}
-        >
-          Read Story
-        </Button>
-      </CardContent>
-    </Card>
+      </a>
+    </article>
   );
 }
 
