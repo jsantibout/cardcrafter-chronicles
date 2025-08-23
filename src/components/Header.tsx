@@ -7,7 +7,10 @@ export function Header() {
       <div className="max-w-7xl mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center">
+          <div className="flex items-center gap-3">
+            <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+              <span className="text-primary-foreground font-bold text-sm">TC</span>
+            </div>
             <h1 className="text-2xl font-bold text-primary">
               TCG Chronicles
             </h1>
