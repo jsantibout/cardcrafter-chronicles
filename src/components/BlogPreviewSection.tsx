@@ -60,15 +60,15 @@ export function BlogPreview({
   }
 
   return (
-    <article className="group cursor-pointer">
+    <article className="group cursor-pointer bg-card rounded-lg overflow-hidden border border-border/50 hover:border-border transition-colors shadow-sm hover:shadow-md">
       <a href={`/blog/${slug}`} className="block">
-        <div className="relative overflow-hidden rounded-lg aspect-[4/3] bg-muted">
+        {/* Image Section */}
+        <div className="relative overflow-hidden aspect-[4/3] bg-muted">
           <img 
             src={image} 
             alt={title}
             className="w-full h-full object-cover transition-transform group-hover:scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
           
           {/* Category Badge */}
           <div className="absolute top-3 left-3">
@@ -88,31 +88,29 @@ export function BlogPreview({
           
           {/* Read Time */}
           <div className={cn(
-            "absolute top-3 right-3 flex items-center gap-1 text-white/90 text-sm bg-black/20 rounded px-2 py-1",
+            "absolute top-3 right-3 flex items-center gap-1 text-white/90 text-sm bg-black/50 rounded px-2 py-1",
             isNew && "mr-16"
           )}>
             <Clock size={12} />
             <span>{readTime}</span>
           </div>
-          
-          {/* Content Overlay */}
-          <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
-            <div className="space-y-2">
-              <h3 className="text-lg md:text-xl font-bold leading-tight line-clamp-2 group-hover:text-primary-foreground transition-colors">
-                {title}
-              </h3>
-              <p className="text-sm text-white/80 line-clamp-2 hidden md:block">
-                {excerpt}
-              </p>
-              <div className="flex items-center gap-3 text-xs text-white/70 pt-2">
-                <div className="flex items-center gap-1">
-                  <User size={12} />
-                  <span>{author}</span>
-                </div>
-                <span>•</span>
-                <span>{publishDate}</span>
-              </div>
+        </div>
+        
+        {/* Text Content Section */}
+        <div className="p-4 space-y-3">
+          <h3 className="text-lg font-bold leading-tight line-clamp-2 group-hover:text-primary transition-colors">
+            {title}
+          </h3>
+          <p className="text-sm text-muted-foreground line-clamp-2">
+            {excerpt}
+          </p>
+          <div className="flex items-center gap-3 text-xs text-muted-foreground pt-1">
+            <div className="flex items-center gap-1">
+              <User size={12} />
+              <span>{author}</span>
             </div>
+            <span>•</span>
+            <span>{publishDate}</span>
           </div>
         </div>
       </a>
